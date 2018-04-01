@@ -54,7 +54,7 @@ public class Brick : MonoBehaviour {
 	void PuffSmoke () {
 		Vector3 smokePivotOffset = new Vector3 (0.5f, 0.5f, 0f); // Smoke offset due to different pivot positions
 		GameObject smoke = (GameObject)Instantiate(smokePrefab, gameObject.transform.position + smokePivotOffset, Quaternion.identity); // Store smoke as GameObject variable.
-		smoke.particleSystem.startColor = gameObject.GetComponent<SpriteRenderer>().color; // Set smoke's color to the brick's color.
+		smoke.GetComponent<ParticleSystem>().startColor = gameObject.GetComponent<SpriteRenderer>().color; // Set smoke's color to the brick's color.
 	}
 	
 	void LoadSprites () {

@@ -28,7 +28,7 @@ public class Ball : MonoBehaviour {
 			if (Input.GetMouseButtonDown (0)) {
 				hasStarted = true;
 				print ("Mouse clicked. Launch ball.");
-				this.rigidbody2D.velocity = new Vector2 (2f, 10f);
+				this.GetComponent<Rigidbody2D>().velocity = new Vector2 (2f, 10f);
 			}
 		}	
 	}
@@ -40,10 +40,10 @@ public class Ball : MonoBehaviour {
 		float tweakRotation = Random.Range(-0.6f, 0.6f);
 		
 		if (hasStarted) {
-			audio.Play ();
+			GetComponent<AudioSource>().Play ();
 			// Add a little rondomisation to every bounce.
-			rigidbody2D.velocity += tweak; // direction.
-			rigidbody2D.AddTorque(tweakRotation, ForceMode2D.Impulse); // rotation.
+			GetComponent<Rigidbody2D>().velocity += tweak; // direction.
+			GetComponent<Rigidbody2D>().AddTorque(tweakRotation, ForceMode2D.Impulse); // rotation.
 		}
 	}
 	
